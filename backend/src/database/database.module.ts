@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 @Module({
     imports: [
@@ -9,13 +10,17 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
             inject: [ConfigService],
             useFactory: (configService: ConfigService) => ({
                 type: 'postgres',
-                host: configService.get('DB_HOST'),
-                port: configService.get('DB_PORT'),
-                user: configService.get('DB_USER'),
-                password: configService.get('DB_PASSWORD'),
-                database: configService.get('DB_DATABASE'),
+                host: configService.get('PG_HOST'),
+                port: configService.get('PG_PORT'),
+                database: configService.get('PG_DATABASE'),
+                username: configService.get('PG_USER'),
+                password: configService.get('PG_PASSWORD'),
                 entities: [__dirname + '/../**/*.entity.ts'],
                 synchronize: true,
+                ssl: {
+                    rejectUnauthorized: false,
+                },
+                namingStrategy: new SnakeNamingStrategy(),
             }),
         }),
     ],

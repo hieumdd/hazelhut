@@ -11,14 +11,15 @@ import { DatabaseModule } from './database/database.module';
     imports: [
         ConfigModule.forRoot({
             validationSchema: Joi.object({
-                DB_HOST: Joi.string().required(),
-                DB_PORT: Joi.number().required(),
-                DB_USER: Joi.string().required(),
-                DB_PASSWORD: Joi.string().required(),
-                DB_DATABASE: Joi.string().required(),
+                PG_HOST: Joi.string().required(),
+                PG_PORT: Joi.number().required(),
+                PG_USER: Joi.string().required(),
+                PG_PASSWORD: Joi.string().required(),
+                PG_DATABASE: Joi.string().required(),
             }),
         }),
         DatabaseModule,
+        ProductModule,
     ],
     controllers: [AppController],
     providers: [AppService],
