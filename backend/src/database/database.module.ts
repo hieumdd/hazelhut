@@ -15,7 +15,7 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
                 database: configService.get('PG_DATABASE'),
                 username: configService.get('PG_USER'),
                 password: configService.get('PG_PASSWORD'),
-                entities: [__dirname + '/../**/*.entity.ts'],
+                entities: [__dirname + '/../**/*.entity{.ts,.js}'],
                 synchronize: true,
                 ssl: {
                     rejectUnauthorized: false,
