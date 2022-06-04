@@ -6,7 +6,7 @@ import Joi from '@hapi/joi';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
-import { ProductModule } from './product/product.module';
+import { ProductModule } from './models/product/product.module';
 
 @Module({
     imports: [
