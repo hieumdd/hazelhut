@@ -1,7 +1,7 @@
 import { Column, Entity, ManyToOne } from 'typeorm';
 
-import { Meta } from '../../../models/interface/meta.entity';
-import { Product } from '../../product/entities/product.entity';
+import { Meta } from '@models/common/meta.entity';
+import { Product } from '@models/product/entities/product.entity';
 import { ProductAttribute } from './product-attribute.entity';
 
 @Entity()

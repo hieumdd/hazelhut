@@ -1,8 +1,8 @@
 import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 
-import { Meta } from '../../../models/interface/meta.entity';
+import { Meta } from '@models/common/meta.entity';
 import { ProductCategory } from './productCategory.entity';
-import { ProductAttributeValue } from '../../product-attribute/entities/product-attribute-value.entity';
+import { ProductAttributeValue } from '@models/product-attribute/entities/product-attribute-value.entity';
 
 @Entity()
 export class Product extends Meta {

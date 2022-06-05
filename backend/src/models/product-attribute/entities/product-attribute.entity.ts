@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany } from 'typeorm';
 
-import { Meta } from '../../../models/interface/meta.entity';
+import { Meta } from '@models/common/meta.entity';
 import { ProductAttributeValue } from './product-attribute-value.entity';
 
 @Entity()
