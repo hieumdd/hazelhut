@@ -1,21 +1,11 @@
-import {
-    Column,
-    Entity,
-    PrimaryGeneratedColumn,
-    CreateDateColumn,
-    UpdateDateColumn,
-    ManyToOne,
-    OneToMany,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 
+import { Meta } from '../../../models/interface/meta.entity';
 import { ProductCategory } from './productCategory.entity';
 import { ProductAttributeValue } from '../../product-attribute/entities/product-attribute-value.entity';
 
 @Entity()
-export class Product {
-    @PrimaryGeneratedColumn()
-    id: number;
-
+export class Product extends Meta {
     @Column()
     name: string;
 
@@ -24,10 +14,4 @@ export class Product {
 
     @OneToMany(() => ProductAttributeValue, ({ product }) => product)
     attribute_values: ProductAttributeValue[];
-
-    @CreateDateColumn()
-    createdAt: Date;
-
-    @UpdateDateColumn()
-    updatedAt: Date;
 }
