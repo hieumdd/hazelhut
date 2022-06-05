@@ -7,6 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { ProductModule } from './models/product/product.module';
+import { ProductAttributeModule } from './models/product-attribute/product-attribute.module';
 
 @Module({
     imports: [
@@ -21,6 +22,7 @@ import { ProductModule } from './models/product/product.module';
         }),
         DatabaseModule,
         ProductModule,
+        ProductAttributeModule,
     ],
     controllers: [AppController],
     providers: [AppService],
